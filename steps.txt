@@ -147,3 +147,14 @@ GRANT ALL ON cloud_usage.* to cloud@`%`;
 GRANT process ON *.* TO cloud@`localhost`; 
 GRANT process ON *.* TO cloud@`%`; 
 
+
+Step 31: sudo cloudstack-setup-databases cloud:password@localhost --deploy-as=root
+
+
+Step 32: sudo cloudstack-setup-management
+
+
+Step 33: sudo ufw allow mysql
+
+
+
