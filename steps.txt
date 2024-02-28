@@ -164,3 +164,12 @@ Step 35: sudo mkdir -p /export/secondary
 Step 36: sudo nano /etc/exports 
 
 Insert the line: /export *(rw,async,no_root_squash,no_subtree_check)
+
+
+Step 37: sudo apt install nfs-kernel-server 
+
+
+step 38   36:       sudo exportfs -a 
+Step 39   37:       service nfs-kernel-server restart 
+Step 40   38:       sudo mkdir -p /mnt/primary /mnt/secondary
+Step 41   39:       sudo echo "192.168.145.132:/export/primary /mnt/primary nfs 
