@@ -159,5 +159,8 @@ Step 33: sudo ufw allow mysql
 
 Step 34: sudo mkdir -p /export/primary 
 Step 35: sudo mkdir -p /export/secondary 
+
+
 Step 36: sudo nano /etc/exports 
 
+Insert the line: /export *(rw,async,no_root_squash,no_subtree_check)
