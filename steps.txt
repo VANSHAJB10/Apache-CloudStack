@@ -172,4 +172,20 @@ Step 37: sudo apt install nfs-kernel-server
 step 38   36:       sudo exportfs -a 
 Step 39   37:       service nfs-kernel-server restart 
 Step 40   38:       sudo mkdir -p /mnt/primary /mnt/secondary
-Step 41   39:       sudo echo "192.168.145.132:/export/primary /mnt/primary nfs 
+Step 41   39:       sudo echo "192.168.145.132:/export/primary /mnt/primary nfs rsize=8192,wsize=8192,timeo=14,intr,vers=3,noauto 0 2" >> /etc/fstab
+
+IF ERROR COMES THEN EXECUTE NEXT TWO LINE ....... else Skip next 2 line
+Step 40: sudo chmod 777 /etc/fstab 
+Step 41: sudo echo "192.168.145.132:/export/primary /mnt/primary nfs rsize=8192,wsize=8192,timeo=14,intr,vers=3,noauto 0 2" >> /etc/fstab
+
+
+
+Step 42: sudo echo "192.168.145.132:/export/secondary /mnt/secondary nfs rsize=8192,wsize=8192,timeo=14,intr,vers=3,noauto 0 2" >> /etc/fstab 
+
+Step 43: sudo mount /mnt/primary 
+
+Step 44: sudo mount /mnt/secondary 
+
+Step 45: Open the Browser and type the url: http://192.168.145.132:8080/ 
+
+
