@@ -80,4 +80,4 @@ Step 23:
 wget -O - https://download.cloudstack.org/release.asc |sudo tee /etc/apt/trusted.gpg.d/cloudstack.asc
 
 Step 24:
- update local apt cache: sudo apt update
+sudo apt update  (update local apt cache)
