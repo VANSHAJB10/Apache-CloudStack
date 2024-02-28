@@ -94,8 +94,12 @@ sudo apt install --only-upgrade ca-certificates
 FOCUS!!!!!!    <Step 25 need min 20-30 mins>
 Since it is a management server
 
+
+
 Step 25: sudo apt install cloudstack-management 
+
 Step 26: sudo apt install mysql-server
+
 
 Step 27: sudo nano /etc/mysql/my.cnf 
 
