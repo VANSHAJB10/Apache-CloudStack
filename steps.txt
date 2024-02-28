@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+step 14:
+Sudo nano /etc/netplan/01-network-manager-all.yaml
+
+write : -->
+network:
+    version: 2
+    renderer: networkd
+    ethernets:
+        ens3:
+            dhcp4: no
+            dhcp6: no
+
+    bridges:
+        cloudbr0:
+            interfaces: [ens3]
+            dhcp4: no
+            dhcp6: no
+            addresses: [192.168.122.10/24]
+            gateway4: 192.168.122.1
+            nameservers:
+                addresses: [8.8.8.8, 8.8.4.4]
+
+
+              Step 15: sudo netplan apply
+Step 16: sudo systemctl restart NetworkManager
+Step 17: sudo apt install ntp
+Step 18: sudo systemctl enable ntp
+Step 19: sudo systemctl start ntp
+Step 20: sudo apt install chrony
+Step 21: sudo apt install openjdk-11-jdk
+Step 22: sudo nano /etc/apt/sources.list.d/cloudstack.list
+
+open file and add
+ deb https://download.cloudstack.org/ubuntu focal 4.18
+
+Step 23:
+wget -O - https://download.cloudstack.org/release.asc |sudo tee /etc/apt/trusted.gpg.d/cloudstack.asc
+
+Step 24:
+ update local apt cache: sudo apt update
