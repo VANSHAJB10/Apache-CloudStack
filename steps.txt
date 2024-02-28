@@ -157,4 +157,7 @@ Step 32: sudo cloudstack-setup-management
 Step 33: sudo ufw allow mysql
 
 
+Step 34: sudo mkdir -p /export/primary 
+Step 35: sudo mkdir -p /export/secondary 
+Step 36: sudo nano /etc/exports 
 
