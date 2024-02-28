@@ -64,7 +64,7 @@ network:
                 addresses: [8.8.8.8, 8.8.4.4]
 
 
-              Step 15: sudo netplan apply
+Step 15: sudo netplan apply
 Step 16: sudo systemctl restart NetworkManager
 Step 17: sudo apt install ntp
 Step 18: sudo systemctl enable ntp
