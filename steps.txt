@@ -18,28 +18,27 @@ network:
      nameservers:
          addresses: [8.8.8.8,8.8.8.4]
 
+Step 5: sudo netplan apply
+Step 6: sudo systemctl restart NetworkManager
+Step 7: hostname --fqdn
+
+Step 8: sudo nano /etc/hosts
+Add 192.168.145.131 apache.cloud.u1 cloud
+
+Step 9: sudo hostnamectl set-hostname cloud
 
 
+Step 10: hostname –fqdn
+output should be ----->    apache.cloud.u1
 
 
+Step 11: sudo apt install bridge-utils
 
 
+Step 12: sudo brctl addbr cloudbr0
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Step 13: sudo brctl addif cloudbr0 ens33
 
 
 step 14:
