@@ -42,7 +42,7 @@ Step 13: sudo brctl addif cloudbr0 ens33
 
 
 step 14:
-Sudo nano /etc/netplan/01-network-manager-all.yaml
+sudo nano /etc/netplan/01-network-manager-all.yaml
 
 write : -->
 network:
