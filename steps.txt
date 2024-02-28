@@ -28,7 +28,7 @@ Add 192.168.145.131 apache.cloud.u1 cloud
 Step 9: sudo hostnamectl set-hostname cloud
 
 
-Step 10: hostname –fqdn
+Step 10: hostname --fqdn
 output should be ----->    apache.cloud.u1
 
 
@@ -96,3 +96,14 @@ Since it is a management server
 
 Step 25: sudo apt install cloudstack-management 
 Step 26: sudo apt install mysql-server
+
+Step 27: sudo nano /etc/mysql/my.cnf 
+
+add the below lines at the bottom: 
+[mysqld]                <----- Not Sure whether to write this line
+server-id=1
+innodb_rollback_on_timeout=1
+innodb_lock_wait_timeout=600
+max_connections=350
+log-bin=mysql-bin
+binlog-format = 'ROW'
