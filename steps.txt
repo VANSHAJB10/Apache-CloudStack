@@ -188,4 +188,5 @@ Step 44: sudo mount /mnt/secondary
 
 Step 45: Open the Browser and type the url: http://192.168.145.132:8080/ 
 
-
+Step 46: Provide the default Credentials: 
+ Username: admin, Password: password
