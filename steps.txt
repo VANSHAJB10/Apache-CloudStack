@@ -79,5 +79,13 @@ open file and add
 Step 23:
 wget -O - https://download.cloudstack.org/release.asc |sudo tee /etc/apt/trusted.gpg.d/cloudstack.asc
 
+
+FOCUS!!!!!!    < Important step Ahead!! >
+
 Step 24:
 sudo apt update  (update local apt cache)
+
+
+Error coming: use below commands
+sudo apt install --only-upgrade ca-certificates 
+[trusted = yes] 
