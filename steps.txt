@@ -1,5 +1,22 @@
+Step 1:
+ip a
 
+Step 2: ip r
 
+Step 3: cat /etc/netplan/01-network-manger.yaml          -- (chaing the ip to static)         -- Don't exectute this
+
+Step 4: sudo nano /etc/netplan/01-network-manager-all.yaml
+
+network:
+ version: 2
+ renderer: NetworkManager
+ ethernets:
+   ens33:
+     dhcp4: no
+     addresses: [172.23.207.254/20]
+     gateway4: 192.168.1.1
+     nameservers:
+         addresses: [8.8.8.8,8.8.8.4]
 
 
 
