@@ -4,3 +4,64 @@ systemctl restart libvirtd
 apt-get install uuid
 UUID=$(uuid)
 echo host_uuid = \"$UUID\" >> /etc/libvirt/libvirtd.conf
+
+
+
+
+You should make these settings in /etc/libvirt/libvirtd.conf, uncomment the lines
+. listen_tls=0
+• listen_tcp=0
+• tcp_port = "16509"
+• tcp_port = "16514"
+• listen_addr = "192.168.0.1“ # set as your gateway
+• mdns_adv = 0 # this line needs to be added separately
+• auth_tcp = "none"
+• Save and exit • systemctl restart libvirtd
+
+
+• ln -s /etc/apparmor.d/usr.sbin.libvirtd /etc/apparmor.d/disable/
+• ln -s /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper /etc/apparmor.d/disable/
+• apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd
+• apparmor_parser -R /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
+
+
+
+
+Configure Networks
+Go to sudo nano /etc/netplan/01-network-manager-all.yaml
+• Visit tinyurl.com/int362cp to find contents of this file
+ you should know by now what needs to be replaced in this, close andexit
+• sudo netplan apply or netplan --debbug apply
+• sudo systemctl restart NetworkManager
+
+
+
+Configure Firewall 
+• $ ufw allow proto tcp from any to any port 22
+did you get permission denied.... who will give sudo in front?
+
+• $ ufw allow proto tcp from any to any port 1798
+• $ ufw allow proto tcp from any to any port 16514
+• $ ufw allow proto tcp from any to any port 5900:6100
+• $ ufw allow proto tcp from any to any port 49152:49216
+or you could get rid of it using
+• sudo ufw disable
+
+
+Configure additional settings
+• In an extreme case you might need to pick up host_uuid without quotes from 
+• nano /etc/libvirt/libvirtd.conf 
+• find the host-uuid in end of file, copy the uuid
+• then open sudo nano /etc/cloudstack/agent/agent.properties
+• paste in from of guid=
+
+
+Try adding host
+UNABLE TO DO???
+Check logs
+
+• sudo systemctl status libvirtd
+• sudo systemctl status cloudstack-agent • sudo journalctl -xe cloudstack-agent
+
+Everything seems fine ?
+setup the ip addresses properly Go to management server in browser and add host
