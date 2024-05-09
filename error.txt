@@ -1,1 +1,3 @@
 java.sql.SQLSyntaxErrorException: Duplicate key name 'archived'
+
+sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/" /etc/ssh/sshd_config
