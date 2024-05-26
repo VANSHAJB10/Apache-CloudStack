@@ -1,3 +1,5 @@
+#Run the following commands in Terminal
+
 sed -i -e 's/\#vnc_listen.*$/vnc_listen = "0.0.0.0"/g' /etc/libvirt/qemu.conf 
 systemctl mask libvirtd.socket libvirtd-ro.socket libvirtd-admin.socket libvirtd-tls.socket libvirtdtcp.socket
 systemctl restart libvirtd
@@ -6,9 +8,7 @@ UUID=$(uuid)
 echo host_uuid = \"$UUID\" >> /etc/libvirt/libvirtd.conf
 
 
-
-
-You should make these settings in /etc/libvirt/libvirtd.conf, uncomment the lines
+#You should make these settings in /etc/libvirt/libvirtd.conf, [uncomment the lines:]
 . listen_tls=0
 • listen_tcp=0
 • tcp_port = "16509"
@@ -19,20 +19,21 @@ You should make these settings in /etc/libvirt/libvirtd.conf, uncomment the line
 • Save and exit • systemctl restart libvirtd
 
 
-• ln -s /etc/apparmor.d/usr.sbin.libvirtd /etc/apparmor.d/disable/
-• ln -s /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper /etc/apparmor.d/disable/
-• apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd
-• apparmor_parser -R /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
+#Run the following commands:
+ ln -s /etc/apparmor.d/usr.sbin.libvirtd /etc/apparmor.d/disable/
+ ln -s /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper /etc/apparmor.d/disable/
+ apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd
+ apparmor_parser -R /etc/apparmor.d/usr.lib.libvirt.virt-aa-helper
 
 
 
 
-Configure Networks
+#Configure Networks
 Go to sudo nano /etc/netplan/01-network-manager-all.yaml
-• Visit tinyurl.com/int362cp to find contents of this file
- you should know by now what needs to be replaced in this, close andexit
-• sudo netplan apply or netplan --debbug apply
-• sudo systemctl restart NetworkManager
+#Configure Network settings
+Run:
+ sudo netplan apply or netplan --debbug apply
+ sudo systemctl restart NetworkManager
 
 
 
@@ -48,12 +49,13 @@ or you could get rid of it using
 • sudo ufw disable
 
 
-Configure additional settings
-• In an extreme case you might need to pick up host_uuid without quotes from 
+#Configure additional settings
+#In an extreme case you might need to pick up host_uuid without quotes from 
 • nano /etc/libvirt/libvirtd.conf 
-• find the host-uuid in end of file, copy the uuid
+
+#find the host-uuid in end of file, copy the uuid
 • then open sudo nano /etc/cloudstack/agent/agent.properties
-• paste in from of guid=
+#paste in from of guid=
 
 
 Try adding host
